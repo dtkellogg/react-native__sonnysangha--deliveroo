@@ -1,0 +1,152 @@
+/* Master Styles ... includes .container*/
+
+body {
+    font-family: "Lato, sans-serif;"
+    margin: 0px; /* to get portfolio images against side of page */
+}
+
+/* BELOW IS FOR LAYOUTS -USE GRID */
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr; /* creates templete columns using 1 fractional unit... entire unit has columns .. 1fr = 100% */
+
+}
+
+
+
+/* BELOW IS FOR NAV BAR - USE FLEX BOX*/
+
+.nav-wrapper {
+    display: flex;    /* flex allows divs inside nav-wrapper to be next to (not on top of) */
+    justify-content: space-between; /* uses all open space to flex divs inside */
+    padding: 38px;
+}
+
+.left-side {
+    display: flex;
+}
+
+.nav-wrapper > .left-side > div {  /* starts at nav-wrapper, then go to left side, then grab divs (will place styles on these divs)     */
+    margin-right: 20px;
+    font-size: 0.9em;  /* .9 is a percent (normal is 1) */
+    text-transform: uppercase; /* makes all text uppercase */
+}
+
+.nav-link-wrapper {
+    height: 22px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s; /* so text fades */
+}
+
+.nav-link-wrapper a {   /* just grab link "a" in nav-link-wrapper */
+    color: #8a8a8a;
+    text-decoration: none; /* gets rid of underline */
+    transition: color 0.5s; 
+}
+
+.nav-link-wrapper:hover {     /*when u hover over link */
+    border-bottom: 1px solid black;
+}
+
+.nav-link-wrapper a:hover {     /* hover state for the link itself */
+    color: black;
+}
+
+.active-nav-link {
+    border-bottom: 1px solid black;
+}
+
+.active-nav-link a{
+    color: black !important;
+}
+
+/* BELOW IS PORTFOLIO STYLES */
+
+.portfolio-items-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* gives each of 3 columns their own full sized column */
+}
+
+.portfolio-item-wrapper {
+    position: relative; /* allows each item positioned inside to have more flexibility... to lay txt on top of pic... first step*/
+
+}
+
+.portfolio-img-background {
+    height: 350px;
+    width: 100%; /* so they fill up each square (?) */
+    background-size: cover; /* makes images cropped so they all sit nicely next to each other */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.img-text-wrapper {
+    position: absolute; /* we had to say relative above to use this */
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.logo-wrapper img{
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+
+.img-text-wrapper .subtitle {
+    transition: 1s;
+    font-weight: 600;
+    color: transparent;
+}
+
+
+.img-text-wrapper:hover .subtitle {
+    font-weight: 600px;
+    color: steelblue;
+}
+
+.img-text-wrapper .subtitle a {        /* ADDING IN AFTER VIDEO TO TRY TO MAKE HYPERLINK FADED */
+    transition: 1s;
+    font-weight: 600;
+    color: transparent;
+    text-decoration: none;
+}
+
+.img-text-wrapper:hover .subtitle a {        /* ADDING IN AFTER VIDEO TO TRY TO MAKE HYPERLINK FADED */
+    font-weight: 600px;
+    color: steelblue;
+}
+
+.img-darken {
+    transition: 1s;
+    filter: brightness(10%);
+}
+
+
+/* About page */
+
+.two-column-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.profile-image-wrapper img {
+    height: 100%;
+    width: 100%;
+}
+
+.profile-content-wrapper {
+    padding: 30px;
+}
+
+.profile-content-wrapper h1 {
+    color: steelblue;
+}
+
