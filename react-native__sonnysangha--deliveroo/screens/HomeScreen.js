@@ -21,14 +21,25 @@ const HomeScreen = () => {
     })
   })
 
-  // useEffect(() => {
-  //   // Past in query into fetch
-  //   sanityClient.fetch(`
-    
-  //   `).then((data) => {
-  //     setFeaturedCategories(data)
-  //   })
-  // }, [])
+  useEffect(() => {
+    // Past in query into fetch
+    sanityClient.fetch(`
+      *[_type == "featured"] {
+        ...,
+        restaurants[]-> {
+          ...,
+          dishes[]->,
+          type-> {
+            ...
+          }
+        }
+      }
+    `).then((data) => {
+      setFeaturedCategories(data)
+    })
+  }, [])
+
+  console.log('featuredCategories:', featuredCategories)
 
   return (
     <SafeAreaView className="bg-white pt-5">
@@ -69,25 +80,35 @@ const HomeScreen = () => {
             paddingBottom: 100
           }}
         >
-        {/* Categories */}
-        <Categories />
+          {/* Categories */}
+          <Categories />
 
-        {/* Featured Rows */}
-        <FeaturedRow
-          id="1"
-          title="Featured"
-          description="Paid placements from our partners"
-        />
-        <FeaturedRow
-          id="2"
-          title="Tasty Discounts"
-          description="Everyone's been enjoying these juicy discounts!"
-        />
-        <FeaturedRow
-          id="3"
-          title="Offers near you!"
-          description="Why not support your local restaurant tonight!"
-        />
+          {/* Featured */}
+          {featuredCategories?.map(category => (
+            <FeaturedRow
+              key={category._id}
+              id={category._id}
+              title={category.name}
+              description={category.short_description}
+            />
+          ))}
+
+          {/* Featured Rows */}
+          {/* <FeaturedRow
+            id="1"
+            title="Featured"
+            description="Paid placements from our partners"
+          />
+          <FeaturedRow
+            id="2"
+            title="Tasty Discounts"
+            description="Everyone's been enjoying these juicy discounts!"
+          />
+          <FeaturedRow
+            id="3"
+            title="Offers near you!"
+            description="Why not support your local restaurant tonight!"
+          /> */}
 
         </ScrollView>
     </SafeAreaView>
