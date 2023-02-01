@@ -14,10 +14,6 @@ const Categories = () => {
     })
   }, [])
 
-  console.log('!!!!')
-  console.log('!!!!')
-  console.log('!!!!')
-  console.log('CATEGORIES:', categories)
   return (
     <ScrollView
       contentContainerStyle={{
