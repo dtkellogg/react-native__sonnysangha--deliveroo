@@ -42,7 +42,7 @@ const HomeScreen = () => {
   console.log('featuredCategories:', featuredCategories)
 
   return (
-    <SafeAreaView className="bg-white pt-5">
+    <SafeAreaView className="pt-5 mb-28">
         {/* Header */}
         <View className="flex-row pb-3 items-center mx-4 space-x-2 px-4">
           <Image
@@ -92,24 +92,6 @@ const HomeScreen = () => {
               description={category.short_description}
             />
           ))}
-
-          {/* Featured Rows */}
-          {/* <FeaturedRow
-            id="1"
-            title="Featured"
-            description="Paid placements from our partners"
-          />
-          <FeaturedRow
-            id="2"
-            title="Tasty Discounts"
-            description="Everyone's been enjoying these juicy discounts!"
-          />
-          <FeaturedRow
-            id="3"
-            title="Offers near you!"
-            description="Why not support your local restaurant tonight!"
-          /> */}
-
         </ScrollView>
     </SafeAreaView>
   )

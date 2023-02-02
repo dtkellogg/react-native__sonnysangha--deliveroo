@@ -21,7 +21,7 @@ const RestaurantCard = ({
   
   return (
     <TouchableOpacity
-      className="bg-white mr-3 shadow"
+      className="bg-white mr-3 shadow w-64 rounded-b-lg"
       onPress={() => {
         navigation.navigate('Restaurant', {
           id,
@@ -41,7 +41,7 @@ const RestaurantCard = ({
         source={{
           uri: urlFor(imgUrl).url()
         }}
-        className="h-64 w-64 rounded-sm"
+        className="h-64 w-64 rounded-t-sm"
       />
 
       <View className="px-3 pb-4">
